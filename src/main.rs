@@ -1,6 +1,13 @@
 struct SysMem {
     memory: [u8; 4096],
-    memory_pointer: u32,
+    indexRegister: u16,
+    programCounter: u16,
+    stack: Vec<u8>,
+    stackPointer: u8,
+    delayTimer: u8,
+    soundTimer: u8,
+    
+
 }
 
 impl SysMem {
@@ -8,7 +15,12 @@ impl SysMem {
     fn new() -> SysMem {
         SysMem {
             memory: [0; 4096], //PrePopulate with Font later
-            memory_pointer: 0
+            indexRegister: 0,
+            programCounter: 0,
+            stack: Vec::new(),
+            stackPointer: 0,
+            delayTimer: 0,
+            soundTimer: 0
         }
     }
 
